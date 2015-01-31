@@ -5,7 +5,7 @@ using WebSocket4Net;
 
 namespace Nancy.AspNet.WebSockets.Tests.Integration
 {
-    public class WebSocketAwareHttpHandler
+    public class The_WebSocketAwareHttpHandler_class
     {
         [TestFixture]
         public class With_site_not_overriding_the_default_nancy_handler : IisExpressBasedTest
