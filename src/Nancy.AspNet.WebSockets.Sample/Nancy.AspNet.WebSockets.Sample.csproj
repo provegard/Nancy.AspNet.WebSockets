@@ -93,6 +93,7 @@
     <Compile Include="DrawingBoard.cs" />
     <Compile Include="DrawingBoardModule.cs" />
     <Compile Include="DrawingBoards.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RootModule.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -101,9 +102,7 @@
       <Name>Nancy.AspNet.WebSockets</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
