@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Nancy and Websockets</title>
+    <link rel="stylesheet" href="/Content/Styles.css" />
+</head>
+<body>
+    <canvas id="canvas1" width="800" height="600" style="width:800px;height:600px">
+        Canvas not supported. Please use a modern browser.
+    </canvas>
+    <div>
+        <label>
+            Drawing board: <input type="text" id="drawingBoardName" />
+        </label>
+        <br/>
+        <label>
+            Name: <input type="text" id="userName" />
+        </label>
+        <br/>
+        <button id="connectBtn">Connect</button>
+        <button id="disconnectBtn">Disconnect</button>
+    </div>
+    <div>
+        <input type="text" id="messageText" />
+        <button id="messageBtn">Say it!</button>
+    </div>
+    <div id="messages">
+    </div>
+    <script src="/Content/app.js"></script>
+    <script src="/Content/ws.js"></script>
+    <script src="/Content/loader.js"></script>
+</body>
+</html>

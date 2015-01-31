@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nancy.AspNet.WebSockets.Sample", "Nancy.AspNet.WebSockets.Sample\Nancy.AspNet.WebSockets.Sample.csproj", "{6BE7D127-01E6-478F-AD94-A03DFDDC77B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nancy.AspNet.WebSockets.Sample.Tests", "Nancy.AspNet.WebSockets.Sample.Tests\Nancy.AspNet.WebSockets.Sample.Tests.csproj", "{F42B4150-8B37-4A12-B46F-D4852F206C33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nancy.AspNet.WebSockets", "Nancy.AspNet.WebSockets\Nancy.AspNet.WebSockets.csproj", "{1DEC0EED-75B6-4A53-A1AD-8A02976101B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nancy.AspNet.WebSockets.Tests", "Nancy.AspNet.WebSockets.Tests\Nancy.AspNet.WebSockets.Tests.csproj", "{6DB86E1F-EF6F-475A-B835-B26D4E9BC61C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nancy.AspNet.WebSockets.Tests.StandardSite", "Nancy.AspNet.WebSockets.Tests.StandardSite\Nancy.AspNet.WebSockets.Tests.StandardSite.csproj", "{E00E5202-1554-4676-89CE-DFCDEC9048A8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6BE7D127-01E6-478F-AD94-A03DFDDC77B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BE7D127-01E6-478F-AD94-A03DFDDC77B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BE7D127-01E6-478F-AD94-A03DFDDC77B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BE7D127-01E6-478F-AD94-A03DFDDC77B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F42B4150-8B37-4A12-B46F-D4852F206C33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F42B4150-8B37-4A12-B46F-D4852F206C33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F42B4150-8B37-4A12-B46F-D4852F206C33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F42B4150-8B37-4A12-B46F-D4852F206C33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DEC0EED-75B6-4A53-A1AD-8A02976101B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DEC0EED-75B6-4A53-A1AD-8A02976101B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DEC0EED-75B6-4A53-A1AD-8A02976101B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DEC0EED-75B6-4A53-A1AD-8A02976101B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DB86E1F-EF6F-475A-B835-B26D4E9BC61C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DB86E1F-EF6F-475A-B835-B26D4E9BC61C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DB86E1F-EF6F-475A-B835-B26D4E9BC61C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DB86E1F-EF6F-475A-B835-B26D4E9BC61C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E00E5202-1554-4676-89CE-DFCDEC9048A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E00E5202-1554-4676-89CE-DFCDEC9048A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E00E5202-1554-4676-89CE-DFCDEC9048A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E00E5202-1554-4676-89CE-DFCDEC9048A8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
