@@ -19,8 +19,8 @@
         void Send(byte[] data);
 
         /// <summary>
-        /// Disconnect the client.
+        /// Close the connection to the client.
         /// </summary>
-        void Disconnect();
+        void Close();
     }
 }

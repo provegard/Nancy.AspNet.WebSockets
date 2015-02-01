@@ -112,7 +112,7 @@ namespace Nancy.AspNet.WebSockets.Testing
                 _forClient.Add(s => s.RaiseDataReceived(data));
             }
 
-            public void Disconnect()
+            public void Close()
             {
                 _forClient.Add(s => s.RaiseClosed());
                 _forClient.CompleteAdding();

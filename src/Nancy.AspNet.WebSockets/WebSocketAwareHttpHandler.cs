@@ -124,11 +124,6 @@ namespace Nancy.AspNet.WebSockets
             {
                 _handler.OnClose();
             }
-
-            public void Disconnect()
-            {
-                Close();
-            }
         }
 
     }

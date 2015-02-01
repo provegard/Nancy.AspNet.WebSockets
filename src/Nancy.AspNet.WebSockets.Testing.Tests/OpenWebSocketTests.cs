@@ -90,7 +90,7 @@ namespace Nancy.AspNet.WebSockets.Testing.Tests
         {
             IWebSocketClient client = null;
             _handler.WhenForAnyArgs(h => h.OnOpen(null)).Do(ci => client = ci.Arg<IWebSocketClient>());
-            _handler.When(h => h.OnMessage("close")).Do(_ => client.Disconnect());
+            _handler.When(h => h.OnMessage("close")).Do(_ => client.Close());
 
             var closeListener = Substitute.For<EventHandler>();
             _browser.OpenWebSocket("/ws", socket =>
@@ -141,7 +141,7 @@ namespace Nancy.AspNet.WebSockets.Testing.Tests
             {
                 var client = ci.Arg<IWebSocketClient>();
                 client.Send("hello");
-                client.Disconnect();
+                client.Close();
             });
             var messageListener = Substitute.For<EventHandler<BrowserExtensions.MessageEventArgs>>();
             _browser.OpenWebSocket("/ws", socket =>
@@ -159,7 +159,7 @@ namespace Nancy.AspNet.WebSockets.Testing.Tests
             {
                 var client = ci.Arg<IWebSocketClient>();
                 client.Send(new byte[] {99});
-                client.Disconnect();
+                client.Close();
             });
             var dataListener = Substitute.For<EventHandler<BrowserExtensions.DataEventArgs>>();
             _browser.OpenWebSocket("/ws", socket =>
