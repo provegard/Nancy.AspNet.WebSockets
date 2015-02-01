@@ -89,7 +89,7 @@ namespace Nancy.AspNet.WebSockets
         /// WebSocketHandler which does most of the heavy lifting of communicating with the client. The
         /// IWebSocketClient interface means that this instance can be passed to the IWebSocketHandler
         /// instance without exposing any Microsoft.WebSockets types. The methods of IWebSocketClient
-        /// overlap with those of WebSocketHandler, so the only one we have to implement is Disconnect.
+        /// overlap with those of WebSocketHandler, so there is nothing to implement for that interface.
         /// </summary>
         private class WebSocketProxy : WebSocketHandler, IWebSocketClient
         {
