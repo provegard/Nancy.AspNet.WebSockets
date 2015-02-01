@@ -104,13 +104,13 @@ namespace Nancy.AspNet.WebSockets.Testing.Tests
         [Test]
         public void Should_raise_error_event_on_socket_when_route_doesnt_exist()
         {
-            var errorListener = Substitute.For<EventHandler<BrowserExtensions.ErrorEventArgs>>();
+            var errorListener = Substitute.For<EventHandler<ErrorEventArgs>>();
             _browser.OpenWebSocket("/notfound", socket =>
             {
                 socket.Error += errorListener;
             });
             errorListener.Received(1)(Arg.Any<object>(),
-                Arg.Is<BrowserExtensions.ErrorEventArgs>(
+                Arg.Is<ErrorEventArgs>(
                     args => args.ErrorResponse.StatusCode == HttpStatusCode.NotFound));
         }
 
@@ -143,13 +143,13 @@ namespace Nancy.AspNet.WebSockets.Testing.Tests
                 client.Send("hello");
                 client.Close();
             });
-            var messageListener = Substitute.For<EventHandler<BrowserExtensions.MessageEventArgs>>();
+            var messageListener = Substitute.For<EventHandler<MessageEventArgs>>();
             _browser.OpenWebSocket("/ws", socket =>
             {
                 socket.MessageReceived += messageListener;
             });
             messageListener.Received(1)(Arg.Any<object>(),
-                Arg.Is<BrowserExtensions.MessageEventArgs>(args => args.Message == "hello"));
+                Arg.Is<MessageEventArgs>(args => args.Message == "hello"));
         }
 
         [Test]
@@ -161,13 +161,13 @@ namespace Nancy.AspNet.WebSockets.Testing.Tests
                 client.Send(new byte[] {99});
                 client.Close();
             });
-            var dataListener = Substitute.For<EventHandler<BrowserExtensions.DataEventArgs>>();
+            var dataListener = Substitute.For<EventHandler<DataEventArgs>>();
             _browser.OpenWebSocket("/ws", socket =>
             {
                 socket.DataReceived += dataListener;
             });
             dataListener.Received(1)(Arg.Any<object>(),
-                Arg.Is<BrowserExtensions.DataEventArgs>(args => args.Data.Length == 1 && args.Data[0] == 99));
+                Arg.Is<DataEventArgs>(args => args.Data.Length == 1 && args.Data[0] == 99));
         }
 
         [Test]
