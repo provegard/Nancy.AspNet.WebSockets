@@ -25,7 +25,7 @@ namespace Nancy.AspNet.WebSockets.Tests.StandardSite
             _client.Send(response);
         }
 
-        public void OnMessage(byte[] message)
+        public void OnData(byte[] message)
         {
             var response = message.Reverse().ToArray();
             _client.Send(response);

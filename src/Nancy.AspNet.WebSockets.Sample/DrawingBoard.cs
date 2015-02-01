@@ -65,7 +65,7 @@ namespace Nancy.AspNet.WebSockets.Sample
                 SendToAll(string.Format("User {0} says: {1}", _user, message));
             }
 
-            public void OnMessage(byte[] message)
+            public void OnData(byte[] message)
             {
                 SendToAll(message);
             }

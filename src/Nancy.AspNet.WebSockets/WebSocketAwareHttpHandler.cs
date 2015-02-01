@@ -112,7 +112,7 @@ namespace Nancy.AspNet.WebSockets
 
             public override void OnMessage(byte[] data)
             {
-                _handler.OnMessage(data);
+                _handler.OnData(data);
             }
 
             public override void OnError()

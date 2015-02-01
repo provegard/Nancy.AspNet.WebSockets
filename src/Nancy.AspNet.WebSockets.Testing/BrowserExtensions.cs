@@ -188,7 +188,7 @@ namespace Nancy.AspNet.WebSockets.Testing
             public void Send(byte[] data)
             {
                 RequireOpen();
-                _forServer.Add(h => h.OnMessage(data));
+                _forServer.Add(h => h.OnData(data));
             }
 
             public void Close()

@@ -82,7 +82,7 @@ namespace Nancy.AspNet.WebSockets.Testing.Tests
                     socket.Close();
                 };
             });
-            _handler.Received().OnMessage(Arg.Is<byte[]>(arg => arg.Length == 1 && arg[0] == 42));
+            _handler.Received().OnData(Arg.Is<byte[]>(arg => arg.Length == 1 && arg[0] == 42));
         }
 
         [Test]
