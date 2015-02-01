@@ -192,6 +192,20 @@ namespace Nancy.AspNet.WebSockets.Testing.Tests
             Assert.That(sw.ElapsedMilliseconds, Is.LessThan(500));
         }
 
+        [Test]
+        public void Should_not_permit_setting_max_age_below_zero()
+        {
+            Assert.Catch<InvalidOperationException>(
+                () => _browser.OpenWebSocket("/ws", socket => socket.MaxAge = TimeSpan.FromMilliseconds(-1)));
+        }
+
+        [Test]
+        public void Should_not_permit_setting_max_age_to_zero()
+        {
+            Assert.Catch<InvalidOperationException>(
+                () => _browser.OpenWebSocket("/ws", socket => socket.MaxAge = TimeSpan.FromMilliseconds(0)));
+        }
+
         public class WsModule : WebSocketNancyModule
         {
             public WsModule(IWebSocketHandler handler)

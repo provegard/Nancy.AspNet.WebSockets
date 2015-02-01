@@ -40,6 +40,12 @@ namespace Nancy.AspNet.WebSockets.Testing
             var socket = new WebSocket(forServer);
             setupSocket(socket);
 
+            // Verify that MaxAge is valid.
+            if (socket.MaxAge.TotalMilliseconds <= 0)
+            {
+                throw new InvalidOperationException("Max age must be greater than zero.");
+            }
+
             // Create a CancellationTokenSource with a timeout. The default timeout is set in the WebSocket
             // constructor, but can be overridden through the MaxAge property.
             var cts = new CancellationTokenSource(socket.MaxAge);
