@@ -37,7 +37,7 @@ namespace Nancy.AspNet.WebSockets
                 // Add a special header to indicate that this is a WebSocket request. This is necessary since
                 // Nancy's context and request objects are strictly separated from those from the host (ASP.NET)
                 // in this case. But the headers are copied, so that's our way in.
-                context.Request.Headers.Add(Constants.WebsocketHeaderMarker, "_");
+                context.Request.Headers.Add(Constants.WebsocketIndicatorHeader, "_");
 
                 // Dispatch the request to the handler and intercept the completion by providing a custom
                 // callback.

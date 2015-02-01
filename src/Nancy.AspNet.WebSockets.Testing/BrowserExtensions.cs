@@ -28,7 +28,7 @@ namespace Nancy.AspNet.WebSockets.Testing
                     configure(ctx);
 
                 // Indicate that this is a WebSocket connection
-                ctx.Header(Constants.WebsocketHeaderMarker, "***");
+                ctx.Header(Constants.WebsocketIndicatorHeader, "***");
             });
 
             // Setup the collections that will be used to dispatch actions across client and server

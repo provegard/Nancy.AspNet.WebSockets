@@ -44,7 +44,7 @@ namespace Nancy.AspNet.WebSockets
             {
                 return d =>
                 {
-                    var wsr = _parentModule.Request.Headers[Constants.WebsocketHeaderMarker].FirstOrDefault();
+                    var wsr = _parentModule.Request.Headers[Constants.WebsocketIndicatorHeader].FirstOrDefault();
                     if (wsr == null)
                     {
                         return HttpStatusCode.MethodNotAllowed;

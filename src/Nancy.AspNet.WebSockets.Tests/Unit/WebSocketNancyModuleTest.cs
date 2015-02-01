@@ -16,7 +16,7 @@ namespace Nancy.AspNet.WebSockets.Tests.Unit
         public void Should_return_a_special_response_object_for_a_websocket_request()
         {
             var browser = new Browser(with => with.Module<WsModule>());
-            var response = browser.Get("/ws", ctx => ctx.Header(Constants.WebsocketHeaderMarker, "***"));
+            var response = browser.Get("/ws", ctx => ctx.Header(Constants.WebsocketIndicatorHeader, "***"));
             Assert.That(response.Context.Response, Is.InstanceOf<WebSocketHandlerWrapperResponse>());
         }
 
@@ -24,7 +24,7 @@ namespace Nancy.AspNet.WebSockets.Tests.Unit
         public void Should_return_the_handler_created_by_the_route()
         {
             var browser = new Browser(with => with.Module<WsModule>());
-            var response = browser.Get("/ws", ctx => ctx.Header(Constants.WebsocketHeaderMarker, "***"));
+            var response = browser.Get("/ws", ctx => ctx.Header(Constants.WebsocketIndicatorHeader, "***"));
             var handler = ((WebSocketHandlerWrapperResponse) response.Context.Response).Handler;
 
             var client = Substitute.For<IWebSocketClient>();
