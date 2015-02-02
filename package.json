@@ -1,0 +1,33 @@
+{
+  "name": "Nancy.AspNet.WebSockets",
+  "version": "0.0.1",
+  "description": "WebSocket support for ASP.NET-hosted Nancy applications",
+  "dependencies": {
+    "grunt-cli": "^0.1.13"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-exec": "^0.4.6",
+    "grunt-msbuild": "^0.3.0",
+    "grunt-nuget": "^0.1.4",
+    "grunt-nunit-runner": "^2.0.4"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/provegard/Nancy.AspNet.WebSockets.git"
+  },
+  "keywords": [
+    "nancy",
+    "websockets",
+    "aspnet"
+  ],
+  "author": "Per Rovegard",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/provegard/Nancy.AspNet.WebSockets/issues"
+  },
+  "homepage": "https://github.com/provegard/Nancy.AspNet.WebSockets"
+}

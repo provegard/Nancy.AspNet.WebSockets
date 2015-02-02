@@ -1,5 +1,5 @@
 ﻿///<reference path="jasmine.js" />
-///<reference path="~/../NancyWebsockets/Content/app.js" />
+///<reference path="../../Nancy.AspNet.WebSockets.Sample/Content/app.js" />
 
 describe("application functions", function () {
 
