@@ -7,7 +7,7 @@
             WebSocket["/{path}"] = _ =>
             {
                 var board = drawingBoards.Get((string) _.path);
-                var user = Request.Query.name ?? "Unknown";
+                var user = (string) Request.Query.name ?? "Unknown";
                 return board.Register(user);
             };
         }

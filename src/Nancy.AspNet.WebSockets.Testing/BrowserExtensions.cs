@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Threading;
+using System.Threading.Tasks;
 using Nancy.Testing;
 
 namespace Nancy.AspNet.WebSockets.Testing
@@ -69,34 +70,54 @@ namespace Nancy.AspNet.WebSockets.Testing
             
             // Start a dispatcher that consumes actions from the 'forServer' collection and invokes each
             // action on the IWebSocketHandler instance.
-            var serverThread = new Thread(() =>
+            var serverTask = Task.Factory.StartNew(() =>
             {
                 foreach (var action in forServer.GetConsumingEnumerable(cts.Token))
                 {
                     action(handler);
                 }
+            });
 
-                // If 'forServer.CompleteAdding()' was called, the client initiated a socket close. The
-                // following is needed to break out from the 'forClient' dispatcher below.
-                forClient.CompleteAdding();
-            }) {IsBackground = true};
-            serverThread.Start();
+            // If 'forServer.CompleteAdding()' was called, the client initiated a socket close. The
+            // following is needed to break out from the 'forClient' dispatcher below. It's a continuation
+            // task so that it's run even when a 'forServer' action throws an exception.
+            serverTask.ContinueWith(t => forClient.CompleteAdding());
 
-            // Raise the Opened event on the WebSocket instance, to simulate that the socket is now open.
-            socket.RaiseOpened();
-
-            // Dispatch actions destined for the client to the WebSocket.
-            foreach (var action in forClient.GetConsumingEnumerable(cts.Token))
+            var ignoreExceptionFromServerTaskWait = false;
+            try
             {
-                action(socket);
+                // Raise the Opened event on the WebSocket instance, to simulate that the socket is now open.
+                socket.RaiseOpened();
+
+                // Dispatch actions destined for the client to the WebSocket.
+                foreach (var action in forClient.GetConsumingEnumerable(cts.Token))
+                {
+                    action(socket);
+                }
+
+                // If 'forClient.CompleteAdding()' was called, the server disconnected the client. The
+                // following is needed to break out from the server dispacher above.
+                forServer.CompleteAdding();
             }
-
-            // If 'forClient.CompleteAdding()' was called, the server disconnected the client. The
-            // following is needed to break out from the server dispacher above.
-            forServer.CompleteAdding();
-
-            // Finally wait for the server dispatcher thread to exit.
-            serverThread.Join();
+            catch
+            {
+                // We don't want any exception from the server task shadowing this exception
+                ignoreExceptionFromServerTaskWait = true;
+                throw;
+            }
+            finally
+            {
+                try
+                {
+                    // Finally wait for the server dispatcher thread to exit.
+                    serverTask.Wait();
+                }
+                catch
+                {
+                    if (!ignoreExceptionFromServerTaskWait)
+                        throw;
+                }
+            }
         }
 
         internal class ClientProxy : IWebSocketClient

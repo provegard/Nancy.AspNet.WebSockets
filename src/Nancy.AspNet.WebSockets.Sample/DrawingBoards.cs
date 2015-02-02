@@ -9,7 +9,7 @@ namespace Nancy.AspNet.WebSockets.Sample
 
     public class DrawingBoards : IDrawingBoards
     {
-        private readonly ConcurrentDictionary<string, DrawingBoard> _boards = new ConcurrentDictionary<string, DrawingBoard>();  
+        private readonly ConcurrentDictionary<string, DrawingBoard> _boards = new ConcurrentDictionary<string, DrawingBoard>();
 
         public DrawingBoard Get(string name)
         {

@@ -35,7 +35,20 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CsQuery">
+      <HintPath>..\packages\CsQuery.1.3.3\lib\net40\CsQuery.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Nancy, Version=0.20.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Nancy.0.20.0\lib\net40\Nancy.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy.Testing">
+      <HintPath>..\packages\Nancy.Testing.0.20.0\lib\net40\Nancy.Testing.dll</HintPath>
+    </Reference>
+    <Reference Include="NSubstitute">
+      <HintPath>..\packages\NSubstitute.1.8.1.0\lib\net45\NSubstitute.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
@@ -56,12 +69,23 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="DrawingBoardModuleTest.cs" />
+    <Compile Include="DrawingBoardsTest.cs" />
+    <Compile Include="DrawingBoardTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Nancy.AspNet.WebSockets.Sample\Nancy.AspNet.WebSockets.Sample.csproj">
       <Project>{6BE7D127-01E6-478F-AD94-A03DFDDC77B7}</Project>
       <Name>Nancy.AspNet.WebSockets.Sample</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nancy.AspNet.WebSockets.Testing\Nancy.AspNet.WebSockets.Testing.csproj">
+      <Project>{B5396FFB-8E48-448F-BAB1-EDC829CDD776}</Project>
+      <Name>Nancy.AspNet.WebSockets.Testing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Nancy.AspNet.WebSockets\Nancy.AspNet.WebSockets.csproj">
+      <Project>{1DEC0EED-75B6-4A53-A1AD-8A02976101B1}</Project>
+      <Name>Nancy.AspNet.WebSockets</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

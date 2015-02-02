@@ -1,11 +1,13 @@
-using System.Collections.Concurrent;
+using System;
+using System.Collections.Generic;
 
 namespace Nancy.AspNet.WebSockets.Sample
 {
     public class DrawingBoard
     {
         private readonly string _name;
-        private readonly BlockingCollection<Handler> _handlers = new BlockingCollection<Handler>(); 
+        private readonly IList<Handler> _handlers = new List<Handler>();
+        private readonly object _guard = new object();
 
         public DrawingBoard(string name)
         {
@@ -15,8 +17,24 @@ namespace Nancy.AspNet.WebSockets.Sample
         public IWebSocketHandler Register(string user)
         {
             var handler = new Handler(this, user);
-            _handlers.Add(handler);
+            lock (_guard) _handlers.Add(handler);
             return handler;
+        }
+
+        internal void Deregister(Handler h)
+        {
+            lock (_guard) _handlers.Remove(h);
+        }
+
+        internal void ForEachHandler(Action<Handler> a)
+        {
+            lock (_guard)
+            {
+                foreach (var handler in _handlers)
+                {
+                    a(handler);
+                }
+            }
         }
 
         public class Handler : IWebSocketHandler
@@ -33,24 +51,24 @@ namespace Nancy.AspNet.WebSockets.Sample
 
             private void SendToAll(string message)
             {
-                foreach (var handler in _drawingBoard._handlers)
+                _drawingBoard.ForEachHandler(handler =>
                 {
                     if (handler != this)
                     {
                         handler._client.Send(message);
                     }
-                }
+                });
             }
 
             private void SendToAll(byte[] message)
             {
-                foreach (var handler in _drawingBoard._handlers)
+                _drawingBoard.ForEachHandler(handler =>
                 {
                     if (handler != this)
                     {
                         handler._client.Send(message);
                     }
-                }
+                });
             }
 
             public void OnOpen(IWebSocketClient client)
@@ -74,6 +92,7 @@ namespace Nancy.AspNet.WebSockets.Sample
             {
                 SendToAll(string.Format("User {0} disconnected from drawing board {1}", _user,
                     _drawingBoard._name));
+                _drawingBoard.Deregister(this);
             }
 
             public void OnError()
