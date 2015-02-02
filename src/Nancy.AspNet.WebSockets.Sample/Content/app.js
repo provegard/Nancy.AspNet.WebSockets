@@ -43,7 +43,6 @@
         }
 
         function startTracking(event) {
-            console.log(event);
             lastPos = element.relMouseCoords(event);
             isTracking = true;
         }

@@ -17,14 +17,22 @@ describe("application functions", function () {
         ctx.fillRect(0, 0, 100, 100);
 
         this.dispatchMouseEvent = function (type, x, y) {
-            var offs = canvas.topLeftOffset();
-            var event = new MouseEvent(type, {
-                cancelable: true,
-                bubbles: true,
-                view: window,
-                clientX: x + offs.x,
-                clientY: y + offs.y
-            });
+            var offs = canvas.topLeftOffset(),
+                event,
+                cx = x + offs.x,
+                cy = y + offs.y;
+            if (typeof (MouseEvent) === 'function') {
+                event = new MouseEvent(type, {
+                    cancelable: true,
+                    bubbles: true,
+                    view: window,
+                    clientX: cx,
+                    clientY: cy
+                });
+            } else {
+                event = document.createEvent('MouseEvents');
+                event.initMouseEvent(type, true, true, window, 0, cx, cy, cx, cy);
+            }
             canvas.dispatchEvent(event);
         }
     });
