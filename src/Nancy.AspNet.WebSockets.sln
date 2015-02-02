@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nancy.AspNet.WebSockets.Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nancy.AspNet.WebSockets.Testing.Tests", "Nancy.AspNet.WebSockets.Testing.Tests\Nancy.AspNet.WebSockets.Testing.Tests.csproj", "{06B675F4-F176-48E7-9818-CEC1ACC0DE79}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nancy.AspNet.WebSockets.Tests.CustomHandlerSite", "Nancy.AspNet.WebSockets.Tests.CustomHandlerSite\Nancy.AspNet.WebSockets.Tests.CustomHandlerSite.csproj", "{31F65DE6-C817-41E6-A361-5E371F2E9277}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{06B675F4-F176-48E7-9818-CEC1ACC0DE79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06B675F4-F176-48E7-9818-CEC1ACC0DE79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06B675F4-F176-48E7-9818-CEC1ACC0DE79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31F65DE6-C817-41E6-A361-5E371F2E9277}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31F65DE6-C817-41E6-A361-5E371F2E9277}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31F65DE6-C817-41E6-A361-5E371F2E9277}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31F65DE6-C817-41E6-A361-5E371F2E9277}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

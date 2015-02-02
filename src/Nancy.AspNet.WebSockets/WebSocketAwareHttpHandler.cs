@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Configuration;
+using System.Web.Hosting;
 using Microsoft.Web.WebSockets;
+using Nancy.AspNet.WebSockets.Config;
 using Nancy.Hosting.Aspnet;
 
 namespace Nancy.AspNet.WebSockets
@@ -14,7 +17,21 @@ namespace Nancy.AspNet.WebSockets
     /// </summary>
     public class WebSocketAwareHttpHandler : IHttpAsyncHandler
     {
-        private readonly IHttpAsyncHandler _handler = new NancyHttpRequestHandler();
+        private readonly IHttpAsyncHandler _handler;
+
+        public WebSocketAwareHttpHandler()
+        {
+            var path = HostingEnvironment.ApplicationVirtualPath;
+            var webConfig = WebConfigurationManager.OpenWebConfiguration(path);
+
+            // Parse WebConfig to a HandlerConfig object, then read the inner handler type.
+            // We'll get a default if no custom handler has been specified.
+            var handlerConfig = new HandlerConfig(webConfig);
+            var handlerType = handlerConfig.HandlerType;
+
+            // Create the inner handler. Assume it has a default constructor.
+            _handler = (IHttpAsyncHandler) Activator.CreateInstance(handlerType);
+        }
 
         public void ProcessRequest(HttpContext context)
         {

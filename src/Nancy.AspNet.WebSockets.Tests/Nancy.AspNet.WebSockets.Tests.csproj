@@ -51,6 +51,7 @@
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
@@ -66,16 +67,24 @@
     <Compile Include="..\CommonAssemblyInfo.cs">
       <Link>CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="Integration\Extensions.cs" />
+    <Compile Include="Integration\CustomHandlerSiteTests.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="Integration\Http.cs" />
     <Compile Include="Integration\IisExpressBasedTest.cs" />
-    <Compile Include="Integration\WebSocketAwareHttpHandlerTests.cs" />
+    <Compile Include="Integration\StandardSiteTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Unit\FakeHttpHandler.cs" />
+    <Compile Include="Unit\HandlerConfigTest.cs" />
     <Compile Include="Unit\WebSocketHandlerWrapperResponseTest.cs" />
     <Compile Include="Unit\WebSocketNancyModuleTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <EmbeddedResource Include="Unit\WebConfigs\Custom_handler.config" />
+    <EmbeddedResource Include="Unit\WebConfigs\Custom_handler_in_group.config" />
+    <EmbeddedResource Include="Unit\WebConfigs\Wrong_handler_type.config" />
+    <EmbeddedResource Include="Unit\WebConfigs\Omitted_handler_type.config" />
+    <EmbeddedResource Include="Unit\WebConfigs\No_custom_handler.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Nancy.AspNet.WebSockets\Nancy.AspNet.WebSockets.csproj">

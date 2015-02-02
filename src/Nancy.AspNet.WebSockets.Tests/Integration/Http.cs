@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Specialized;
 using System.IO;
 using System.Net;
 
@@ -6,35 +7,52 @@ namespace Nancy.AspNet.WebSockets.Tests.Integration
 {
     internal static class Http
     {
-        private static string ReadStreamText(Stream s)
+        internal static string BodyAsString(this HttpResponse resp)
         {
+            var ms = new MemoryStream();
+            resp.Contents(ms);
+            ms.Position = 0;
             // Assume UTF-8
-            using (var reader = new StreamReader(s))
+            using (var reader = new StreamReader(ms))
             {
                 return reader.ReadToEnd();
             }
         }
 
-        internal static string GetBodyAsString(string address)
+        internal static HttpResponse Get(string address)
         {
-            var client = new WebClient();
+            var request = WebRequest.Create(address) as HttpWebRequest;
             try
             {
-                return ReadStreamText(client.OpenRead(address));
+                var response = request.GetResponse() as HttpWebResponse;
+                return new HttpResponse(response);
             }
             catch (WebException ex)
             {
-                if (ex.Status == WebExceptionStatus.ProtocolError)
-                {
-                    var resp = ex.Response as HttpWebResponse;
-                    var statusCode = resp.StatusCode;
-                    var body = ReadStreamText(resp.GetResponseStream());
-                    throw new Exception("Server responded with status " + statusCode + ": " + body);
-                }
-                throw;
+                var resp = ex.Response as HttpWebResponse;
+                return new HttpResponse(resp);
             }
         }
-
-
     }
+
+    internal class HttpResponse
+    {
+        internal int StatusCode { get; private set; }
+        internal Action<Stream> Contents { get; private set; }
+        internal NameValueCollection Headers { get; private set; }
+
+        internal HttpResponse(HttpWebResponse response)
+        {
+            StatusCode = (int) response.StatusCode;
+            Contents = s =>
+            {
+                using (var source = response.GetResponseStream())
+                {
+                    source.CopyTo(s);
+                }
+            };
+            Headers = response.Headers;
+        }
+    }
+
 }
