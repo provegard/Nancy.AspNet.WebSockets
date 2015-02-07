@@ -32,7 +32,7 @@ namespace Nancy.AspNet.WebSockets.Tests.Integration
             // Send data as soon as the websocket is open
             websocket.Opened += (sender, e) => websocket.Send("hello world");
 
-            var result = await tcs.Task.GetResultWithin(TimeSpan.FromMilliseconds(2000));
+            var result = await tcs.Task.GetResultWithin(TimeSpan.FromMilliseconds(3000));
             Assert.AreEqual("dlrow olleh", result);
         }
 
@@ -48,7 +48,7 @@ namespace Nancy.AspNet.WebSockets.Tests.Integration
             // Send data as soon as the websocket is open
             websocket.Opened += (sender, e) => websocket.Send(new byte[] {1, 2, 3}, 0, 3);
 
-            var result = await tcs.Task.GetResultWithin(TimeSpan.FromMilliseconds(2000));
+            var result = await tcs.Task.GetResultWithin(TimeSpan.FromMilliseconds(3000));
             CollectionAssert.AreEqual(new byte[] {3, 2, 1}, result);
         }
 
@@ -69,7 +69,7 @@ namespace Nancy.AspNet.WebSockets.Tests.Integration
             };
 
             // Wait until we have closed the socket
-            await tcs.Task.GetResultWithin(TimeSpan.FromMilliseconds(2000));
+            await tcs.Task.GetResultWithin(TimeSpan.FromMilliseconds(3000));
 
             // Get the log
             var newlineSeparated = Http.Get("http://" + GetHost() + "/log").BodyAsString();
