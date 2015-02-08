@@ -7,6 +7,7 @@ WebSocket support for Nancy (http://nancyfx.org/) applications hosted with ASP.N
 * Nancy.Hosting.Aspnet version 0.20.0
 * Microsoft.WebSockets version 0.2.3
 * .NET 4.5 (due to use of await/async)
+* IIS 7.5 (for WebSocket support)
 
 ## Installing
 
