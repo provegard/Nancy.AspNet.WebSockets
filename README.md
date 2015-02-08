@@ -22,8 +22,13 @@ Please see the wiki for full usage instructions.
 
 Feel free to contribute bug fixes and improvements.
 
-To build outside of Visual Studio, you must have grunt installed. Simple run grunt
-without arguments to compile and run all tests.
+To build outside of Visual Studio, you must have npm and grunt installed. To install
+the necessary dependencies, run:
+
+    npm install .
+    npm install -g grunt-cli
+
+Simply run `grunt` without arguments to compile and run all tests.
 
 ## Author/contact
 
