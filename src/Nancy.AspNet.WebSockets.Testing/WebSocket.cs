@@ -1,4 +1,6 @@
-﻿using System;
+﻿/* Copyright 2015 Per Rovegard
+   Licensed under the MIT license. See LICENSE file in the root of the repo for the full license. */
+using System;
 using System.Collections.Concurrent;
 using Nancy.Testing;
 

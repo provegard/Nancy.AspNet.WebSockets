@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿/* Copyright 2015 Per Rovegard
+   Licensed under the MIT license. See LICENSE file in the root of the repo for the full license. */
+using System;
 using System.Configuration;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Configuration;
 using Nancy.Hosting.Aspnet;
 
 namespace Nancy.AspNet.WebSockets.Config

@@ -1,4 +1,5 @@
-﻿
+﻿/* Copyright 2015 Per Rovegard
+   Licensed under the MIT license. See LICENSE file in the root of the repo for the full license. */
 (function (doc) {
     var CanvasId = "canvas1";
 

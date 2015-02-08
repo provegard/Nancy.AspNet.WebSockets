@@ -1,5 +1,4 @@
-﻿using System;
-using Nancy.AspNet.WebSockets;
+﻿using Nancy.AspNet.WebSockets;
 using Nancy.AspNet.WebSockets.Sample;
 using Nancy.AspNet.WebSockets.Testing;
 using Nancy.Testing;

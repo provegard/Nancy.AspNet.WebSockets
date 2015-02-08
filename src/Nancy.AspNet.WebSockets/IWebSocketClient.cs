@@ -1,4 +1,6 @@
-﻿namespace Nancy.AspNet.WebSockets
+﻿/* Copyright 2015 Per Rovegard
+   Licensed under the MIT license. See LICENSE file in the root of the repo for the full license. */
+namespace Nancy.AspNet.WebSockets
 {
     /// <summary>
     /// IWebSocketClient is an interface that represents a WebSocket client, i.e. typically the

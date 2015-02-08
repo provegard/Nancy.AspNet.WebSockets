@@ -1,11 +1,12 @@
-﻿using System;
+﻿/* Copyright 2015 Per Rovegard
+   Licensed under the MIT license. See LICENSE file in the root of the repo for the full license. */
+using System;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.Hosting;
 using Microsoft.Web.WebSockets;
 using Nancy.AspNet.WebSockets.Config;
-using Nancy.Hosting.Aspnet;
 
 namespace Nancy.AspNet.WebSockets
 {
