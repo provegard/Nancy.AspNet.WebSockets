@@ -1,8 +1,10 @@
 var relSolutionPath = 'src/Nancy.AspNet.WebSockets.sln',
-    solutionConfig = 'Release',
-    version = '0.0.1';
+    solutionConfig = 'Release';
 
 module.exports = function (grunt) {
+
+    var version = grunt.file.read('VERSION').trim();
+    grunt.log.writeln('Version is ' + version);
 
     grunt.initConfig({
 
@@ -64,14 +66,25 @@ module.exports = function (grunt) {
                 noshadow: true,
                 labels: true
             }
-        }
+        },
 
+        replace: {
+            version: {
+                src: ['src/CommonAssemblyInfo.cs'],
+                overwrite: true,
+                replacements: [{
+                    from: /(Assembly(Informational)?Version)\("[0-9.]+"\)/g,
+                    to: '$1("' + version + '")'
+                }]
+            }
+        }
     });
 
     grunt.loadNpmTasks('grunt-nuget');
     grunt.loadNpmTasks('grunt-msbuild');
     grunt.loadNpmTasks('grunt-exec');
     grunt.loadNpmTasks('grunt-nunit-runner');
+    grunt.loadNpmTasks('grunt-text-replace');
 
     grunt.registerTask('clean', ['msbuild:clean']);
     grunt.registerTask('package-restore', ['nugetrestore:restore']);
