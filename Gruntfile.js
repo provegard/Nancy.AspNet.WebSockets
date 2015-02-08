@@ -77,7 +77,9 @@ module.exports = function (grunt) {
                     to: '$1("' + version + '")'
                 }]
             }
-        }
+        },
+
+        clean_: ['dist/*']
     });
 
     grunt.loadNpmTasks('grunt-nuget');
@@ -85,8 +87,12 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-exec');
     grunt.loadNpmTasks('grunt-nunit-runner');
     grunt.loadNpmTasks('grunt-text-replace');
+    grunt.loadNpmTasks('grunt-contrib-clean');
 
-    grunt.registerTask('clean', ['msbuild:clean']);
+    // Since our public task is named clean, we need to rename the one from grunt-contrib-clean.
+    grunt.task.renameTask('clean', 'clean_');
+
+    grunt.registerTask('clean', ['clean_', 'msbuild:clean']);
     grunt.registerTask('package-restore', ['nugetrestore:restore']);
     grunt.registerTask('compile', ['clean', 'package-restore', 'msbuild:dev']);
     grunt.registerTask('test', ['compile', 'exec:jstest', 'nunit:test']);
