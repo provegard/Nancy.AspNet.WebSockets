@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Nancy.AspNet.WebSockets.Testing</id>
+    <version>$version$</version>
+    <title>Test harness for Nancy ASP.NET WebSockets</title>
+    <authors>Per Rovegard</authors>
+    <owners>Per Rovegard</owners>
+    <licenseUrl>http://per.mit-license.org/2015</licenseUrl>
+    <projectUrl>https://github.com/provegard/Nancy.AspNet.WebSockets</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Provides a test harness for WebSocket testing in Nancy applications.</description>
+    <releaseNotes>First release.</releaseNotes>
+    <copyright>Copyright 2015 Per Rovegard</copyright>
+    <tags>nancy aspnet websockets testing</tags>
+    <dependencies>
+      <dependency id="Nancy.Testing" version="0.20.0" />
+      <dependency id="Nancy.AspNet.WebSockets" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin/Release/Nancy.AspNet.WebSockets.Testing.dll" target="lib/net45" />
+    <file src="bin/Release/Nancy.AspNet.WebSockets.Testing.pdb" target="lib/net45" />
+  </files>
+</package>

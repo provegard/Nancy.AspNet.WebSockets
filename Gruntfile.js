@@ -1,5 +1,6 @@
 var relSolutionPath = 'src/Nancy.AspNet.WebSockets.sln',
-    solutionConfig = 'Debug';
+    solutionConfig = 'Release',
+    version = '0.0.1';
 
 module.exports = function (grunt) {
 
@@ -34,6 +35,16 @@ module.exports = function (grunt) {
                 dest: 'src/packages'
             }
         },
+        
+        nugetpack: {
+          dist: {
+              src: 'src/**/*.nuspec',
+              dest: 'dist/',
+              options: {
+                version: version
+              }
+          }
+        },
 
         exec: {
             jstest: {
@@ -66,6 +77,7 @@ module.exports = function (grunt) {
     grunt.registerTask('package-restore', ['nugetrestore:restore']);
     grunt.registerTask('compile', ['clean', 'package-restore', 'msbuild:dev']);
     grunt.registerTask('test', ['compile', 'exec:jstest', 'nunit:test']);
+    grunt.registerTask('package', ['test', 'nugetpack']);
     grunt.registerTask('default', ['test']);
 
 };

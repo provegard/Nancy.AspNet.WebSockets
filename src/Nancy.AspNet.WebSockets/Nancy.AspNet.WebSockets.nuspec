@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Nancy.AspNet.WebSockets</id>
+    <version>$version$</version>
+    <title>WebSocket support for Nancy ASP.NET hosts</title>
+    <authors>Per Rovegard</authors>
+    <owners>Per Rovegard</owners>
+    <licenseUrl>http://per.mit-license.org/2015</licenseUrl>
+    <projectUrl>https://github.com/provegard/Nancy.AspNet.WebSockets</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Provides WebSocket support to Nancy applications running on an ASP.NET host.</description>
+    <releaseNotes>First release.</releaseNotes>
+    <copyright>Copyright 2015 Per Rovegard</copyright>
+    <tags>nancy aspnet websockets</tags>
+    <dependencies>
+      <dependency id="Nancy.Hosting.Aspnet" version="0.20.0" />
+      <dependency id="Microsoft.WebSockets" version="0.2.3" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin/Release/Nancy.AspNet.WebSockets.dll" target="lib/net45" />
+    <file src="bin/Release/Nancy.AspNet.WebSockets.pdb" target="lib/net45" />
+  </files>
+</package>
