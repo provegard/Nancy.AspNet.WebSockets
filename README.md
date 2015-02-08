@@ -10,9 +10,18 @@ WebSocket support for Nancy (http://nancyfx.org/) applications hosted with ASP.N
 
 ## Installing
 
-Install from Nuget Gallery: (TODO: insert link)
+Install via NuGet:
 
-The test harness is also available from Nuget Gallery: ...
+    Install-Package Nancy.AspNet.WebSockets
+
+And for the test harness:
+
+    Install-Package Nancy.AspNet.WebSockets.Testing
+
+Nuget.org links:
+
+* Main package: https://www.nuget.org/packages/Nancy.AspNet.WebSockets
+* Test harness: https://www.nuget.org/packages/Nancy.AspNet.WebSockets.Testing
 
 ## Using
 
