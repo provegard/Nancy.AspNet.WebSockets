@@ -21,6 +21,11 @@ And for the test harness:
 Or if you're more of a UI person, go to Tools &gt; NuGet Package Manager &gt; Manage NuGet Packages for Solution...,
 and search for the package(s) there.
 
+**Note**: Nancy.AspNet.WebSockets depends on a quite old Nancy version, 0.20.0. This is the
+first version that used an async HTTP handler. However, if you install Nancy.AspNet.WebSockets
+*before* Nancy.Hosting.Aspnet, NuGet will install version 0.20.0, which is probably not what
+you want. Therefore, install Nancy.Hosting.Aspnet first.
+
 Nuget.org links:
 
 * Main package: https://www.nuget.org/packages/Nancy.AspNet.WebSockets
