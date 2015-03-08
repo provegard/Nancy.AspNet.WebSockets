@@ -1,0 +1,13 @@
+﻿<?xml version="1.0"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <system.webServer>
+    <handlers>
+      <add name="Nancy" 
+           type="Nancy.AspNet.WebSockets.WebSocketAwareHttpHandler"
+           path="*"
+           verb="*"
+           xdt:Transform="Replace"
+           xdt:Locator="Condition(@name='Nancy' and @type='Nancy.Hosting.Aspnet.NancyHttpRequestHandler' and @path='*' and @verb='*')"/>
+    </handlers>
+  </system.webServer>
+</configuration>

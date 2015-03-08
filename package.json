@@ -12,6 +12,7 @@
     "grunt-msbuild": "^0.3.0",
     "grunt-nuget": "^0.1.4",
     "grunt-nunit-runner": "^2.0.4",
+    "grunt-shell": "^1.1.2",
     "grunt-text-replace": "^0.4.0"
   },
   "scripts": {
