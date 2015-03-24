@@ -101,7 +101,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('clean', ['clean_', 'msbuild:clean']);
     grunt.registerTask('package-restore', ['nugetrestore:restore']);
-    grunt.registerTask('compile', ['clean', 'package-restore', 'msbuild:dev']);
+    grunt.registerTask('compile', ['clean', 'package-restore', 'replace:version', 'msbuild:dev']);
     grunt.registerTask('test', ['compile', 'exec:jstest', 'nunit:test', 'shell:test']);
     grunt.registerTask('package', ['test', 'nugetpack']);
     grunt.registerTask('default', ['test']);
