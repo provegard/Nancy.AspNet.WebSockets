@@ -69,6 +69,7 @@
     <Compile Include="WebSocketNancyModule.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="install\install.ps1" />
     <None Include="install\Web.config.uninstall.xdt" />
     <None Include="install\Web.config.install.xdt">
       <SubType>Designer</SubType>

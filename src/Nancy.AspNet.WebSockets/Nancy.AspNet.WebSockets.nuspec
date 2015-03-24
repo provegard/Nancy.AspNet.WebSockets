@@ -23,5 +23,6 @@
     <file src="bin/Release/Nancy.AspNet.WebSockets.pdb" target="lib/net45" />
     <file src="install/Web.config.install.xdt" target="content" />
     <file src="install/Web.config.uninstall.xdt" target="content" />
+    <file src="install/install.ps1" target="tools" />
   </files>
 </package>
