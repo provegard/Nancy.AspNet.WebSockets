@@ -70,7 +70,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="install\Web.config.uninstall.xdt" />
-    <None Include="install\Web.config.install.xdt" />
+    <None Include="install\Web.config.install.xdt">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
