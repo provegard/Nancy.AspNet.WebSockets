@@ -2,7 +2,7 @@
 <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
   <system.webServer>
     <handlers>
-      <add name="Nancy" type="Nancy.Hosting.Aspnet.NancyHttpRequestHandler" xdt:Locator="Match(name)" xdt:Transform="SetAttributes" />
+      <add name="Nancy" type="Nancy.Hosting.Aspnet.NancyHttpRequestHandler" xdt:Locator="Condition(@type='Nancy.AspNet.WebSockets.WebSocketAwareHttpHandler')" xdt:Transform="SetAttributes" />
     </handlers>
   </system.webServer>
 </configuration>
